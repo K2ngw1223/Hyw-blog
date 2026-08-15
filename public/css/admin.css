@@ -316,16 +316,19 @@
   .admin { flex-direction: column; }
   .admin-side {
     width: 100%; flex: none; height: auto; position: static;
-    flex-direction: row; align-items: center; flex-wrap: wrap;
-    padding: 12px;
+    flex-direction: column; align-items: stretch; padding: 10px;
+    gap: 6px;
   }
   .admin-brand { padding: 4px 8px; }
-  .admin-nav { flex-direction: row; flex-wrap: wrap; margin: 0; flex: 1; }
-  .admin-nav a { padding: 8px 10px; font-size: 13px; }
+  .admin-nav {
+    flex-direction: row; flex-wrap: nowrap; overflow-x: auto; margin: 0;
+    padding-bottom: 4px; -webkit-overflow-scrolling: touch;
+  }
+  .admin-nav a { padding: 8px 12px; font-size: 13px; white-space: nowrap; flex: 0 0 auto; }
   .admin-side-foot { margin: 0; flex-direction: row; }
   .admin-side-foot .admin-back { border: 0; background: transparent; padding: 8px; }
+  .admin-top { padding: 16px; flex-wrap: wrap; }
   .admin-content { padding: 16px; }
-  .admin-top { padding: 16px; }
   .tbl { font-size: 13px; }
   .tbl thead { display: none; }
   .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
@@ -333,4 +336,12 @@
   .tbl td { border: 0; padding: 7px 10px; }
   .setrow { flex-direction: column; align-items: stretch; gap: 8px; }
   .setrow .lbl { flex: none; }
+}
+
+@media (max-width: 560px) {
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar .grow { min-width: 0; }
+  .toolbar input, .toolbar select { width: 100%; }
+  .stat b { font-size: 22px; }
+  .abox-h { flex-wrap: wrap; gap: 8px; }
 }

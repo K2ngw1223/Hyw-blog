@@ -601,10 +601,23 @@ button, input, textarea, select { font: inherit; color: inherit; }
   #preview { max-height: 40vh; }
 }
 @media (max-width: 640px) {
-  .hero h1 { font-size: 29px; }
+  .hero h1 { font-size: 27px; }
+  .hero-bio { font-size: 14px; }
   .article h1 { font-size: 25px; }
-  .nav-links { display: none; }
-  .nav-search input { width: 100px; }
+  .nav-in { flex-wrap: wrap; gap: 10px; }
+  .nav-links {
+    order: 5; width: 100%; margin-left: 0; justify-content: center;
+    background: var(--bg-1); border: 1px solid var(--line-soft);
+    border-radius: 10px; padding: 4px;
+  }
+  .nav-search { flex: 1 1 auto; min-width: 0; }
+  .nav-search input { width: 100%; }
   .pager { grid-template-columns: 1fr; }
   .comment-form { flex-direction: column; }
+  .me-grid { gap: 16px; }
+}
+
+@media (max-width: 380px) {
+  .hero h1 { font-size: 23px; }
+  .stat-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
 }

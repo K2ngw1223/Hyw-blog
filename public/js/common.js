@@ -104,8 +104,8 @@ export function renderNav(active = '') {
   el.innerHTML = `
     <div class="wrap nav-in">
       <a class="brand" href="/">
-        <span class="brand-mark">KA</span>
-        <span class="brand-text">KA<span>-</span>Blog</span>
+        <span class="brand-mark">H</span>
+        <span class="brand-text">Hyw<span>-</span>blog</span>
       </a>
       <nav class="nav-links">
         <a href="/" class="${isOn('home')}">首页</a>
@@ -188,6 +188,16 @@ export async function boot(active = '') {
   try {
     const { settings } = await api('/site');
     siteSettings = settings;
+    const desc = siteSettings?.site_description?.trim();
+    if (desc) {
+      let meta = document.querySelector('meta[name="description"]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'description';
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', desc);
+    }
   } catch {
     /* 取不到设置就不阻塞页面 */
   }

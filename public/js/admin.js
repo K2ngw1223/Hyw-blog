@@ -718,6 +718,16 @@ async function settings() {
       <div class="val"><input type="text" id="f_${key}" value="${esc(settings[key] ?? '')}"></div>
     </div>`;
 
+  const textAreaRow = (key, label, hint) => `
+    <div class="setrow">
+      <div class="lbl"><b>${label}</b><small>${hint}</small></div>
+      <div class="val" style="flex-direction:column;align-items:stretch">
+        <textarea id="f_${key}" rows="3" style="width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:8px 12px;outline:none;font:inherit;font-size:14px;line-height:1.7;resize:vertical">${esc(
+          settings[key] ?? ''
+        )}</textarea>
+      </div>
+    </div>`;
+
   const switchRow = (key, label, hint) => `
     <div class="setrow">
       <div class="lbl"><b>${label}</b><small>${hint}</small></div>
@@ -738,6 +748,7 @@ async function settings() {
         ${textRow('site_kicker', '头部副标题', '首页大标题上方的小字')}
         ${textRow('hero_suffix', '主页后缀', '首页“XX 的自留地”里的词')}
         ${textRow('footer_text', '页脚文字', '页脚右侧说明')}
+        ${textAreaRow('site_description', '站点描述', '用于 SEO 的 meta description；留空则输出默认描述')}
         ${textRow('page_size', '每页文章数', '首页分页大小（1-50）')}
       </div>
     </div>
@@ -765,7 +776,7 @@ async function settings() {
   view.onclick = async (e) => {
     if (!e.target.closest('#saveSet')) return;
     const payload = {};
-    ['site_title', 'site_kicker', 'hero_suffix', 'footer_text', 'page_size'].forEach((k) => {
+    ['site_title', 'site_kicker', 'hero_suffix', 'footer_text', 'site_description', 'page_size'].forEach((k) => {
       payload[k] = $(`#f_${k}`).value;
     });
     ['allow_register', 'allow_community_post', 'allow_comment'].forEach((k) => {

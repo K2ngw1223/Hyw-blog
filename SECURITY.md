@@ -1,0 +1,27 @@
+# 安全政策
+
+## 支持的版本
+
+仅最新 `main` 分支接收安全更新。
+
+## 报告漏洞
+
+**请勿通过公开的 Issue 报告安全漏洞。**
+
+请通过 GitHub 的私有安全通告上报：
+仓库页面 → **Security** → **Advisories** → **Report a vulnerability**
+
+上报时请尽量提供：
+- 漏洞类型与影响范围
+- 复现步骤
+- 建议的修复方式（如有）
+
+我们会在收到后尽快确认，并协商修复与披露的时间安排。
+
+## 安全设计要点（供审计参考）
+
+- 用户密码使用 bcrypt 哈希存储，不保存明文。
+- 会话用 JWT 放在 HttpOnly Cookie 中，降低 XSS 窃取风险。
+- Markdown 渲染后经过 `sanitize-html` 白名单过滤；评论内容按纯文本转义，不解析 HTML。
+- 上传接口仅接受图片、单文件 ≤ 5MB，响应带 `Content-Security-Policy: default-src 'none'` 与 `nosniff`。
+- 管理后台仅「站长」（`is_owner`）可访问，普通用户访问返回 403。

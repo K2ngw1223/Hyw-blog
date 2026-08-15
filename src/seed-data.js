@@ -5,6 +5,7 @@ export const DEFAULT_SETTINGS = {
   site_kicker: 'hyw-blog · 自建博客',
   hero_suffix: '的自留地',
   footer_text: 'Node.js + Express + SQLite',
+  site_description: '一个可自托管、开源的个人博客系统模板，支持 Markdown 写作、标签、搜索与评论。',
   page_size: '8',
   allow_register: '1',
   allow_community_post: '1',
