@@ -1,10 +1,13 @@
 # Hyw-blog
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D%2022.5-339933.svg)](https://nodejs.org)
+[![Deploy](https://img.shields.io/badge/deploy-Cloudflare%20Workers%20%2B%20D1%20%2B%20R2-f38020.svg)](DEPLOY.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#)
+
 一个可自托管、开源的个人博客系统模板。**首页默认展示管理员（角色名为"站长"）的文章**，同时任何注册用户登录之后，也可以在站内发表自己的文章。
 
 暗色极客风，零构建（没有 webpack / vite，前端就是原生 HTML + CSS + ES Module），改一行刷新就能看到效果。克隆下来即可作为你自己的博客起点，也可以当作学习 Express / Workers + D1 的示例。
-
----
 
 ## 快速开始
 
@@ -15,13 +18,11 @@ npm start
 
 打开 http://localhost:3000
 
-> 需要 Node.js >= 22.5，因为数据库用的是 Node 内置的 `node:sqlite`，不需要任何原生编译。
+> 需要 Node.js >= 22.5（数据库用 Node 内置的 `node:sqlite`，无需任何原生编译）。
 
-### 部署到 Cloudflare
+想上云（边缘全球访问、免运维）？已内置 **Workers + D1 + R2** 版本，详见 **[DEPLOY.md](./DEPLOY.md)**，把 `wrangler.toml` 里的 `example.com` 换成你的域名即可一键上线。
 
-想上云（边缘全球访问、免运维）？已内置 **Workers + D1 + R2** 版本，详见 **[DEPLOY.md](./DEPLOY.md)**。把 `wrangler.toml` 里的 `example.com` 换成你的域名即可一键上线。
-
-### 预置账号
+## 预置账号
 
 | 角色 | 用户名 | 密码 | 说明 |
 | --- | --- | --- | --- |
