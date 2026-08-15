@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D%2022.5-339933.svg)](https://nodejs.org)
 [![Deploy](https://img.shields.io/badge/deploy-Cloudflare%20Workers%20%2B%20D1%20%2B%20R2-f38020.svg)](DEPLOY.md)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 一个可自托管、开源的个人博客系统模板。**首页默认展示管理员（角色名为"站长"）的文章**，同时任何注册用户登录之后，也可以在站内发表自己的文章。
 
