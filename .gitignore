@@ -1,0 +1,18 @@
+# 依赖
+node_modules/
+
+# 本地 Node 运行时的数据目录（SQLite 文件）
+data/
+
+# wrangler 本地状态 / 产物
+.wrangler/
+.dev.vars
+tmp/
+cf-out/
+
+# 测试 / 临时
+*.cookies
+
+# 系统
+.DS_Store
+*.log

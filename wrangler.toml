@@ -1,0 +1,41 @@
+# Hyw-blog · Cloudflare Workers 部署配置
+# 文档：https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "hyw-blog"
+main = "worker/worker.js"
+compatibility_date = "2026-08-08"
+# 只走自定义域名，不生成 *.workers.dev 子域
+workers_dev = false
+# 用 npx wrangler 时会自动读取已登录账号；如需显式指定，可取消下面注释并填上你的 Account ID
+# account_id = "your-cloudflare-account-id"
+
+# 运行时环境变量（非机密）。生产 JWT 密钥请用 `wrangler secret put JWT_SECRET` 设置，
+# 不要直接把真密钥写在这里。本地开发请放到 .dev.vars（已被 .gitignore 忽略）。
+[vars]
+JWT_SECRET = "dev-only-placeholder-change-me"
+
+# 数据库绑定（边缘 SQLite）
+[[d1_databases]]
+binding = "DB"
+database_name = "hyw-blog"
+# 执行 `wrangler d1 create hyw-blog` 后把返回的 id 填到这里
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# 对象存储绑定（图片上传）
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "hyw-blog-uploads"
+
+# 静态资源：直接由 Cloudflare 边缘分发，未匹配的路径回落到 index.html（SPA）
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+# Worker 先生效：负责 /api、/uploads，其余再交给静态资源
+run_worker_first = true
+
+# 自定义域名（域名必须已托管在 Cloudflare）。
+# 用 custom_domain = true 的 route，无需改 DNS、自动管理证书。
+[[routes]]
+pattern = "example.com"
+custom_domain = true

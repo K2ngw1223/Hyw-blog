@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>登录 · Hyw-blog</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234ade80'/><text x='16' y='22' font-size='15' font-weight='bold' text-anchor='middle' fill='%2306210f' font-family='monospace'>KA</text></svg>" />
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<main class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-tabs">
+      <button data-tab="login" class="on">登录</button>
+      <button data-tab="register">注册</button>
+    </div>
+
+    <h1 id="authTitle">欢迎回来</h1>
+    <p id="authSub">登录之后就可以发表文章和评论了。</p>
+
+    <div class="form-msg" id="msg"></div>
+
+    <form id="authForm">
+      <div class="form-row">
+        <label for="username">用户名</label>
+        <input id="username" name="username" autocomplete="username" placeholder="admin" required />
+      </div>
+
+      <div class="form-row" id="nameRow" hidden>
+        <label for="displayName">昵称</label>
+        <input id="displayName" name="displayName" placeholder="展示在文章和评论上的名字" />
+        <div class="hint">留空就用用户名</div>
+      </div>
+
+      <div class="form-row">
+        <label for="password">密码</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••" required />
+      </div>
+
+      <button class="btn btn-primary" style="width:100%;height:38px" id="submitBtn">登录</button>
+    </form>
+
+    <div class="demo-tip">
+      <b>// 可以直接试试这两个账号</b><br />
+      站长：<code>admin</code> / <code>admin123</code><br />
+      读者：<code>demo</code> / <code>demo123</code>
+    </div>
+  </div>
+</main>
+
+<script type="module" src="/js/login.js"></script>
+</body>
+</html>
